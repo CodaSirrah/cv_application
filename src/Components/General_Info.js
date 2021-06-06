@@ -1,7 +1,7 @@
 import React from 'react'
 
 const GeneralInfo = (props) => {
-  const { changeFirstName, changeLastName, changeEmail, changePhone } = props;
+  const { changeFirstName, changeLastName, changeEmail, changePhone, changeDescription } = props;
 
 const VALIDATE = (() => {
   const SPECIALS = ['!', '?', ';', ':', '<', '>', '@', '#', '~', '£', '$', '%',
@@ -108,26 +108,31 @@ const FORM_SUBMIT = (e) => {
       <form noValidate id='general-info-form' onSubmit={FORM_SUBMIT} onChange={CHANGE_FORM}>
         <div className='child-container' id='fn-container'>
           <label htmlFor='firstName'>First Name:</label>
-          <input type='text' name='firstName' autoComplete='off' onChange={changeFirstName}></input>
+          <input type='text' name='firstName' autoComplete='off' onChange={changeFirstName} />
           <span id='first-name-error' aria-live="polite"></span>
         </div>
 
         <div className='child-container' id='ln-container'> 
           <label htmlFor='lastName'>Last Name:</label>
-          <input type='text' name='lastName' autoComplete='off' onChange={changeLastName}></input>
+          <input type='text' name='lastName' autoComplete='off' onChange={changeLastName} />
           <span id='last-name-error' aria-live="polite"></span>
         </div>
 
         <div className='child-container' id='email-container'>
           <label htmlFor='email'>Email:</label>
-          <input type='email' name='email' spellCheck='off' autoComplete='off' onChange={changeEmail}></input>
+          <input type='email' name='email' spellCheck='off' autoComplete='off' onChange={changeEmail} />
           <span id='email-error' aria-live="polite"></span>
         </div>
 
         <div className='child-container' id='phone-container'>
           <label htmlFor='phone'>Phone:</label>
-          <input type='tel' name='phone' autoComplete='off' onChange={changePhone}></input>
+          <input type='tel' name='phone' autoComplete='off' onChange={changePhone} />
           <span id='phone-error' aria-live="polite"></span>
+        </div>
+
+        <div className='child-container' id='description-container'>
+          <label htmlFor='description'>Description:</label>
+          <textarea name='description' placeholder='Sell yourself...' onChange={changeDescription}/>
         </div>
       </form>
     </div>  

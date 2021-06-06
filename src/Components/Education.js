@@ -65,12 +65,12 @@ const {SCHOOL, SUBJECT, AWARD, START, END, FORM_SUBMIT} = props;
 
         <div className='child-container' id='start-container'>
           <label htmlFor='start-date'>Start-Date:</label>
-          <input type='month' name='start-date' onChange={START} />
+          <input type='number' name='start-date' min='1900' max='2099' step='1' placeholder='2015' onChange={START} />
         </div>
 
         <div className='child-container' id='end-container'>
           <label htmlFor='end-date'>End-Date:</label>
-          <input type='month' name='end-date' onChange={END} />
+          <input type='number' name='end-date' min='1900' max='2099' step='1' placeholder='2020'onChange={END} />
         </div>
         <input type='submit' id='education-submit' onClick={FORM_SUBMIT}></input>
       </form>

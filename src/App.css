@@ -17,15 +17,17 @@ header {
   height: 80px;
   width: 100%;
   background-color: #8B8BAE;
-  border-bottom: 1px solid black;
+  border-bottom: 2px solid #6B6C7A;
 }
 
 h1 {
   position: relative;
   font-family: 'Montserrat';
   font-weight: 500;
-  text-align: center;
+  text-align: left;
   color: white;
+  font-size: 32px;
+  margin-left: 20px;
 }
 
 .cv-info{
@@ -56,14 +58,14 @@ h1 {
   grid-column-start: 1;
   grid-column-end: 1;
   height: 24px;
-  margin-bottom: 26px;
+  margin-bottom: 33px;
 }
 
 #ln-container {
   grid-column-start: 2;
   grid-column-end: 2;
   height: 24px;
-  margin-bottom: 26px;
+  margin-bottom: 33px;
 }
 
 #email-container {
@@ -77,7 +79,26 @@ h1 {
   grid-column-start: 1;
   grid-column-end: 1;
   height: 24px;
-  margin-bottom: 26px;
+  margin-bottom: 33px;
+}
+
+#description-container {
+  grid-column: 2;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  height: 24px;
+  margin-bottom: 33px;
+}
+
+textarea {
+  height: 80px;
+  width: 180px;
+  font-family: 'Courier New', Courier, monospace;
+  color: #0D0707;
+  font-weight: 600;
+  background-color: #d1d4db79;
+  resize: none;
+  
 }
 
 label {
@@ -130,10 +151,10 @@ span {
   border-radius: 3px;
 }
 
-hr {
+#hr-1 {
   width: 640px;
   margin: 0 auto;
-  margin-top: 50px;
+  margin-top: 71px;
 }
 
 #experience-container {
@@ -148,9 +169,18 @@ hr {
 }
 
 #school-container {
-  grid-column-start: 1;
-  grid-column-end: 2;
-  margin-bottom: 16px;
+  grid-column: span 2;
+  margin-bottom: 33px;
+  text-align: left;
+  position: relative;
+  display: block;
+  left: 44px;
+
+ 
+}
+
+#school-container input { 
+  width: 530px;
 }
 
 #subject-container {
@@ -174,7 +204,7 @@ hr {
 #education-btn {
   display: block;
   position: relative;
-  margin: 0 auto;
+  margin: 20px auto;
 }
 
 #education-btn:hover {
@@ -207,7 +237,7 @@ hr {
   box-shadow: 2px 2px #C3C5D5;
   display: grid;
   grid-template-columns: 75% 25%;
-  grid-template-rows: 10% 45% 45%;
+  grid-template-rows: 10% 90%;
 }
 
 #name-display {
@@ -219,7 +249,7 @@ hr {
   display: grid;
   grid-template-columns: 75% 25%;
   grid-template-rows: 1fr 1fr ;
-  background-color: #0f1108dc;
+  background-color: #4D4E5B;
 }
 
 #d-full-name {
@@ -249,8 +279,9 @@ hr {
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 10% 10% 10% 10%;
+  grid-template-rows: 8% 2% 8% 2%;
   text-align: center;
+  border-left: 1px solid #4D4E5B;
 }
 
 #d-email-title {
@@ -278,30 +309,52 @@ hr {
   align-self: center;
 }
 
-#education-display {
+#main-display {
   grid-column: 1;
   grid-row: 2;
-  display: grid;
-  grid-template-columns: 50% 50%;
-  grid-template-rows: 15% auto;
 }
 
-#education-header {
-  text-align: left;
+#education-details {
+  position: relative;
+  grid-column: 1;
+  grid-row: 1;
+
+}
+
+.display-headers {
+  text-align: center;
   font-size: 20px;
-  margin: 20px;
+  margin-bottom: 20px;
   text-decoration: underline;
   grid-column: span 2;
+}
+
+#detail-date {
+  display: inline-flex;
+  grid-column: 1;
   grid-row: 1;
 }
 
-.education-details {
+#detail-main {
+  display: flex;
+  justify-content: center;
+  grid-column: 2;
+  grid-row: 1 ;
+}
+
+.display-hr {
+  margin: -5px auto;
+  width: 450px;
+}
+
+#description-display {
   position: relative;
-  grid-column: span 2;
-  grid-row: 2;
-  text-align: left;
-  margin: 20px;
-  display: grid;
-  grid-template-columns: 25% 75%;
-  grid-template-rows: 1fr;
+  display: block;
+  margin: 0px auto;
+  margin-top: 20px;
+  text-align: center;
+  grid-row: 1;
+  grid-column: 1;
+  width: 450px;
+  height: fit-content;
 }

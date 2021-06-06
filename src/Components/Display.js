@@ -13,11 +13,11 @@ const Display = (props) => {
           <p id='d-phone-title'>Phone Number</p>
           <p id='d-phone'>{props.phone}</p>
         </div>
-        <div id='education-display'>
-          <h5 id='education-header'>Education</h5>
-          <div className='education-details'>
+        <div id='main-display'>
+          <h5 className='display-headers'>Description</h5>
+          <hr className='display-hr'/>
+          <p id='description-display'>{props.description}</p>
             <Details DETAILS={props.DETAILS} />
-          </div>
         </div>
       </div>
     )

@@ -14,6 +14,7 @@ class App extends Component {
       lastName: '',
       email: '',
       phone: '',
+      description: '',
       education: '',
       educationArray: [],
     }
@@ -25,7 +26,7 @@ class App extends Component {
     award: '',
     start_date: '',
     end_date: '',
-    id: uniqid(),
+    id: '',
     }
   changeFirstName = (e) => {
     this.setState({firstName: e.target.value,})
@@ -43,6 +44,9 @@ class App extends Component {
     this.setState({phone: e.target.value,})
   }
 
+  changeDescription = (e) => {
+    this.setState({description: e.target.value,})
+  }
 
 
   changeSchool = (e) => {
@@ -72,21 +76,25 @@ class App extends Component {
 
   formSubmit = (e) => {
     e.preventDefault();
-    this.setState({
-      educationArray: this.state.educationArray.concat(this.state.education),
-      education: ''
-    }, () => {
-      return this.education = {
-        school: '',
-        subject: '',
-        award: '',
-        start_date: '',
-        end_date: '',
-        id: '',
-        }
-    })
+    this.education.id = uniqid();
+    this.setState({education: this.education}, () => {
+      this.setState({
+        educationArray: this.state.educationArray.concat(this.state.education),
+        education: ''
+      }, () => {
+          this.education = {
+          school: '',
+          subject: '',
+          award: '',
+          start_date: '',
+          end_date: '',
+          id: '',
+          }
+      })
+    });
+    
     for (let i = 0; i < 5; i += 1) {
-      console.log(e.target.parentElement.children[i].children[i]);
+      e.target.parentElement.children[i].children[1].value = '';
     }
     
   }
@@ -94,16 +102,16 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header name='CV Application Template'/>
+        <Header name='CV Creator'/>
           <div  className ='cv-info'>
-            <GeneralInfo changeFirstName={this.changeFirstName} 
-            changeLastName={this.changeLastName} changeEmail={this.changeEmail} changePhone={this.changePhone}/>
-            <hr />
+            <GeneralInfo changeFirstName={this.changeFirstName} changeLastName={this.changeLastName} changeEmail={this.changeEmail} 
+            changePhone={this.changePhone} changeDescription={this.changeDescription}/>
+            <hr id='hr-1'/>
             <Education SCHOOL={this.changeSchool} SUBJECT={this.changeSubject} AWARD={this.changeAward} START={this.changeStartDate}
             END={this.changeEndDate} array={this.state.educationArray} education={this.state.education} FORM_SUBMIT={this.formSubmit}/>
           </div>
           <Display fullName={`${this.state.firstName} ${this.state.lastName}`} email={this.state.email}
-           phone={this.state.phone} DETAILS={this.state.educationArray}/>
+           phone={this.state.phone} DETAILS={this.state.educationArray} description={this.state.description}/>
       </div>
     );
   }
