@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Education = (props) => {
-const {SCHOOL, SUBJECT, AWARD, START, END, FORM_SUBMIT} = props;
+const {SCHOOL, SUBJECT, DEGREE, START, END, FORM_SUBMIT} = props;
 
   const SHOW_FORM = (e) => { 
     e.target.parentElement.children[1].classList.toggle('hidden');
@@ -37,7 +37,7 @@ const {SCHOOL, SUBJECT, AWARD, START, END, FORM_SUBMIT} = props;
     if (e.target.name === 'school' || e.target.name === 'subject') {
       VALIDATE.CHECK_FIRST_LETTER(e);
     }
-    if (e.target.name === 'award') {
+    if (e.target.name === 'degree') {
       VALIDATE.CHECK_ALL_CAPITALS(e);
     }
   }
@@ -57,10 +57,10 @@ const {SCHOOL, SUBJECT, AWARD, START, END, FORM_SUBMIT} = props;
           <span id='subject-error' aria-live="polite"></span>
         </div>
 
-        <div className='child-container' id='award-container'>
-          <label htmlFor='award'>Award:</label>
-          <input type='text' name='award' autoComplete='off' onChange={AWARD} />
-          <span id='award-error' aria-live="polite"></span>
+        <div className='child-container' id='degree-container'>
+          <label htmlFor='degree'>Degree:</label>
+          <input type='text' name='degree' autoComplete='off' onChange={DEGREE} />
+          <span id='degree-error' aria-live="polite"></span>
         </div>
 
         <div className='child-container' id='start-container'>

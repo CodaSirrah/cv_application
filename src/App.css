@@ -175,8 +175,13 @@ span {
   position: relative;
   display: block;
   left: 44px;
+  height: 24px;
+}
 
- 
+#school-error {
+display: block;
+width: 537px;
+margin-left: 60px;
 }
 
 #school-container input { 
@@ -190,7 +195,7 @@ span {
   height: 24px;
 }
 
-#award-container {
+#degree-container {
   grid-column-start: 2;
   grid-column-end: 2;
   margin-bottom: 33px;
@@ -256,10 +261,12 @@ span {
   grid-column: 1;
   grid-row: span 2;
   color: #8B8BAE;
-  text-align: right;
+  text-align: left;
   font-family: 'Montserrat';
   align-self: center;
   color: white;
+  font-size: 22px;
+  margin-left: 22px;
 }
 
 .fa-user {
@@ -281,7 +288,6 @@ span {
   grid-template-columns: 1fr;
   grid-template-rows: 8% 2% 8% 2%;
   text-align: center;
-  border-left: 1px solid #4D4E5B;
 }
 
 #d-email-title {
@@ -312,49 +318,75 @@ span {
 #main-display {
   grid-column: 1;
   grid-row: 2;
-}
-
-#education-details {
-  position: relative;
-  grid-column: 1;
-  grid-row: 1;
-
+  width: 100%;
 }
 
 .display-headers {
-  text-align: center;
+  text-align: left;
   font-size: 20px;
-  margin-bottom: 20px;
-  text-decoration: underline;
+  margin-bottom: 1px;
+  margin-left: 22px;
   grid-column: span 2;
 }
 
-#detail-date {
-  display: inline-flex;
-  grid-column: 1;
-  grid-row: 1;
-}
-
-#detail-main {
-  display: flex;
-  justify-content: center;
-  grid-column: 2;
-  grid-row: 1 ;
-}
-
 .display-hr {
-  margin: -5px auto;
-  width: 450px;
+  margin: 0 auto;
+  width: 480px;
+  grid-column: span 2;
 }
 
 #description-display {
   position: relative;
   display: block;
-  margin: 0px auto;
+  margin: 0px 22px;
   margin-top: 20px;
-  text-align: center;
+  text-align: left;
   grid-row: 1;
   grid-column: 1;
   width: 450px;
   height: fit-content;
+}
+
+#education-details {  
+  grid-column: 1;
+  grid-row: 1;
+  
+  height: fit-content;
+  width: 100%;
+ 
+}
+
+.details {
+  display: grid;
+  grid-template-columns: 25% 30% 200px;
+  grid-template-rows: 100px;
+}
+
+#detail-date-container {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: center;
+  text-align: center;
+}
+
+.detail-date {
+  display: inline-block;
+  font-weight: bold;
+}
+
+.detail-school {
+  grid-column: 2;
+  text-align: center;
+  align-self: center;
+}
+
+.detail-subject {
+  grid-column: 3;
+  align-self: flex-start;
+  margin-top: 26px;
+}
+
+.detail-degree {
+  grid-column: 3;
+  align-self: flex-end;
 }

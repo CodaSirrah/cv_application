@@ -23,7 +23,7 @@ class App extends Component {
    education = {
     school: '',
     subject: '',
-    award: '',
+    degree: '',
     start_date: '',
     end_date: '',
     id: '',
@@ -59,8 +59,8 @@ class App extends Component {
     this.setState({education: this.education});
   }
   
-  changeAward = (e) => {
-    this.education.award = e.target.value;
+  changeDegree= (e) => {
+    this.education.degree = e.target.value;
     this.setState({education: this.education})
   }
   
@@ -85,7 +85,7 @@ class App extends Component {
           this.education = {
           school: '',
           subject: '',
-          award: '',
+          degree: '',
           start_date: '',
           end_date: '',
           id: '',
@@ -107,7 +107,7 @@ class App extends Component {
             <GeneralInfo changeFirstName={this.changeFirstName} changeLastName={this.changeLastName} changeEmail={this.changeEmail} 
             changePhone={this.changePhone} changeDescription={this.changeDescription}/>
             <hr id='hr-1'/>
-            <Education SCHOOL={this.changeSchool} SUBJECT={this.changeSubject} AWARD={this.changeAward} START={this.changeStartDate}
+            <Education SCHOOL={this.changeSchool} SUBJECT={this.changeSubject} DEGREE={this.changeDegree} START={this.changeStartDate}
             END={this.changeEndDate} array={this.state.educationArray} education={this.state.education} FORM_SUBMIT={this.formSubmit}/>
           </div>
           <Display fullName={`${this.state.firstName} ${this.state.lastName}`} email={this.state.email}

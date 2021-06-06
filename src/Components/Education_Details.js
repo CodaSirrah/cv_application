@@ -10,17 +10,17 @@ const EDUCATION_DETAILS = (props) => {
       <hr className='display-hr'/>
       {DETAILS.map((detail) => {
         return (
-          <div key={detail.id}>
-            <div id='detail-date'>
-              <p className='detail-start'>{detail.start_date} -</p><p className='detail-end'>{detail.end_date}</p>
+          <div key={detail.id} className='details'>
+            <div id='detail-date-container'>
+              <p className='detail-date'>{detail.start_date} - </p>
+              <p className='detail-date'>{detail.end_date}</p>
             </div>
-            <div id='detail-main'>
-              <p className='detail-school'>{detail.school}</p>
-              <p className='detail-subject'>{detail.subject}</p>
-              <p className='detail-award'>{detail.award}</p>
-            </div>
+            <p className='detail-school'>{detail.school}</p>
+            <div>
+              <p className='detail-subject'>Subject: {detail.subject}</p>
+              <p className='detail-degree'>Degree: {detail.degree}</p></div>
           </div>)
-      })}
+      })} 
     </div>
     
   )
