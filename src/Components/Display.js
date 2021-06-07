@@ -1,5 +1,5 @@
 import React from 'react'
-import Details from './Education_Details'
+import EDUCATION_DETAILS from './Education_Details'
 const Display = (props) => {
     return (
       <div id='cv-display'>
@@ -17,7 +17,7 @@ const Display = (props) => {
           <h5 className='display-headers'>Description</h5>
           <hr className='display-hr'/>
           <p id='description-display'>{props.description}</p>
-            <Details DETAILS={props.DETAILS} />
+            <EDUCATION_DETAILS DETAILS={props.DETAILS} />
         </div>
       </div>
     )

@@ -5,6 +5,8 @@ import GeneralInfo from './Components/General_Info'
 import Education from './Components/Education'
 import Display from './Components/Display'
 import uniqid from 'uniqid'
+import EDIT_EDUCATION from './Components/Edit_Education'
+import Experience from './Components/Experience'
 
 class App extends Component {
   constructor() {
@@ -17,6 +19,8 @@ class App extends Component {
       description: '',
       education: '',
       educationArray: [],
+      experience: '',
+      experienceArray: [],
     }
   }
 
@@ -27,6 +31,15 @@ class App extends Component {
     start_date: '',
     end_date: '',
     id: '',
+    }
+
+    experience = {
+      position: '',
+      company: '',
+      city: '',
+      start_date: '',
+      end_date: '',
+      id: '',
     }
   changeFirstName = (e) => {
     this.setState({firstName: e.target.value,})
@@ -48,7 +61,6 @@ class App extends Component {
     this.setState({description: e.target.value,})
   }
 
-
   changeSchool = (e) => {
     this.education.school = e.target.value;
     this.setState({education: this.education});
@@ -64,17 +76,42 @@ class App extends Component {
     this.setState({education: this.education})
   }
   
-  changeStartDate = (e) => {
+  changeEducationStartDate = (e) => {
     this.education.start_date = e.target.value;
     this.setState({education: this.education})
   }
 
-  changeEndDate = (e) => {
+  changeEducationEndDate = (e) => {
     this.education.end_date = e.target.value;
     this.setState({education: this.education})
   }
 
-  formSubmit = (e) => {
+  changePosition = (e) => {
+    this.experience.position = e.target.value;
+    this.setState({experience: this.experience});
+  }
+
+  changeCompany = (e) => {
+    this.experience.company = e.target.value;
+    this.setState({experience: this.experience});
+  }
+
+  changeCity = (e) => {
+    this.experience.city = e.target.value;
+    this.setState({experience: this.experience});
+  }
+
+  changeExperienceStartDate = (e) => {
+    this.experience.start_date = e.target.value;
+    this.setState({experience: this.experience});
+  }
+
+  changeExperienceEndDate = (e) => {
+    this.experience.end_date = e.target.value;
+    this.setState({experience: this.experience});
+  }
+
+  formSubmitEducation = (e) => {
     e.preventDefault();
     this.education.id = uniqid();
     this.setState({education: this.education}, () => {
@@ -92,26 +129,84 @@ class App extends Component {
           }
       })
     });
-    
     for (let i = 0; i < 5; i += 1) {
       e.target.parentElement.children[i].children[1].value = '';
+      if (i < 3) {
+        e.target.parentElement.children[i].children[2].textContent = '';
+      } 
     }
-    
+  }
+
+  formSubmitExperience = (e) => {
+      e.preventDefault();
+      this.experience.id = uniqid();
+      this.setState({experience: this.experience}, () => {
+        this.setState({
+          experienceArray: this.state.experienceArray.concat(this.state.experience),
+          experience: ''
+        }, () => {
+            this.experience = {
+            position: '',
+            company: '',
+            city: '',
+            start_date: '',
+            end_date: '',
+            id: '',
+            }
+        })
+      });
+      for (let i = 0; i < 5; i += 1) {
+        e.target.parentElement.children[i].children[1].value = '';
+        if (i < 3) {
+          e.target.parentElement.children[i].children[2].textContent = '';
+        } 
+      }
+    }
+
+  CHANGE_DETAILS = (e) => {
+    const NEW_EDUCATION = {
+      school: e.target.parentElement.parentElement.children[0].children[1].value,
+      subject: e.target.parentElement.parentElement.children[1].children[1].value,
+      degree: e.target.parentElement.parentElement.children[2].children[1].value,
+      start_date: e.target.parentElement.parentElement.children[3].children[1].value,
+      end_date: e.target.parentElement.parentElement.children[4].children[1].value,
+      id: e.target.dataset.id,
+    }
+    console.log(NEW_EDUCATION);
+    const NEW_EDUCATION_ARRAY = [];
+    this.state.educationArray.forEach(current => {
+      if (current.id === NEW_EDUCATION.id) {
+        current = NEW_EDUCATION;
+        console.log(current);
+        NEW_EDUCATION_ARRAY.push(current);
+      } else {
+        NEW_EDUCATION_ARRAY.push(current);
+      }
+      this.setState({educationArray: NEW_EDUCATION_ARRAY}, () => {
+        document.querySelector('#edit-details').classList.toggle('hidden');
+      });
+    });
   }
 
   render() {
     return (
       <div className="App">
         <Header name='CV Creator'/>
-          <div  className ='cv-info'>
-            <GeneralInfo changeFirstName={this.changeFirstName} changeLastName={this.changeLastName} changeEmail={this.changeEmail} 
-            changePhone={this.changePhone} changeDescription={this.changeDescription}/>
-            <hr id='hr-1'/>
-            <Education SCHOOL={this.changeSchool} SUBJECT={this.changeSubject} DEGREE={this.changeDegree} START={this.changeStartDate}
-            END={this.changeEndDate} array={this.state.educationArray} education={this.state.education} FORM_SUBMIT={this.formSubmit}/>
-          </div>
-          <Display fullName={`${this.state.firstName} ${this.state.lastName}`} email={this.state.email}
-           phone={this.state.phone} DETAILS={this.state.educationArray} description={this.state.description}/>
+        <div  className ='cv-info'>
+          <GeneralInfo changeFirstName={this.changeFirstName} changeLastName={this.changeLastName} changeEmail={this.changeEmail} 
+           changePhone={this.changePhone} changeDescription={this.changeDescription} />
+          <hr id='hr-1'/>
+          <Education SCHOOL={this.changeSchool} SUBJECT={this.changeSubject} DEGREE={this.changeDegree}
+           START={this.changeEducationStartDate}
+           END={this.changeEducationEndDate} array={this.state.educationArray} education={this.state.education}
+           FORM_SUBMIT={this.formSubmitEducation} />
+          <hr id='hr-2'/>
+          <Experience POSITION={this.changePosition} COMPANY={this.changeCompany} CITY={this.changeCity}
+           START={this.changeExperienceStartDate} END={this.changeExperienceEndDate} FORM_SUBMIT={this.formSubmitExperience} />
+        </div>
+        <Display fullName={`${this.state.firstName} ${this.state.lastName}`} email={this.state.email}
+         phone={this.state.phone} DETAILS={this.state.educationArray} description={this.state.description} />
+        <EDIT_EDUCATION update={this.CHANGE_DETAILS} />  
       </div>
     );
   }

@@ -95,17 +95,9 @@ const CHANGE_FORM = (e) => {
   }
 }
 
-const FORM_SUBMIT = (e) => {
-  e.preventDefault();
-  e.target.children[0].children[1].value = '';
-  e.target.children[1].children[1].value = '';
-  e.target.children[2].children[1].value = '';
-  e.target.children[3].children[1].value = '';
-}
-
   return(
     <div id="general-info-container">
-      <form noValidate id='general-info-form' onSubmit={FORM_SUBMIT} onChange={CHANGE_FORM}>
+      <form noValidate id='general-info-form' onChange={CHANGE_FORM}>
         <div className='child-container' id='fn-container'>
           <label htmlFor='firstName'>First Name:</label>
           <input type='text' name='firstName' autoComplete='off' onChange={changeFirstName} />
