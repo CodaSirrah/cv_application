@@ -30,6 +30,12 @@ h1 {
   margin-left: 20px;
 }
 
+h3 {
+  position: relative;
+  font-weight: 600;
+  text-align: center;
+}
+
 .cv-info{
   background-color: #ffffff;
   width: 700px;
@@ -44,7 +50,7 @@ h1 {
   height: 100px;
   display: flex;
   justify-content: center;
-  margin-top: 10px;
+  margin-top: 50px;
 }
 
 #general-info-form {
@@ -215,18 +221,6 @@ span {
   z-index: -1;
 }
 
-#education-btn {
-  display: block;
-  position: relative;
-  margin: 20px auto;
-}
-
-#education-btn:hover {
-  cursor: pointer;;
-  background-color: #C3C5D5;
-  border: 2px solid black;
-}
-
 #education-submit {
   display: block;
   position: relative;
@@ -355,48 +349,48 @@ span {
   height: fit-content;
 }
 
-#education-details {  
+#education-details-container {  
   grid-column: 1;
   grid-row: 1;
   height: fit-content;
   width: 100%;
 }
 
-.details {
+.education-details {
   display: grid;
   grid-template-columns: 25% 30% 200px 100px;
   grid-template-rows: 100px;
 }
 
-#detail-date-container {
+#education-detail-date-container {
   grid-column: 1;
   grid-row: 1;
   align-self: center;
   text-align: center;
 }
 
-.detail-date {
+.education-detail-date {
   display: inline-block;
   font-weight: bold;
 }
 
-.detail-school {
+.education-detail-school {
   grid-column: 2;
   text-align: center;
   align-self: center;
 }
 
-.detail-specifics {
+.education-detail-specifics {
   text-align: center;
 }
 
-.detail-subject {
+.education-detail-subject {
   grid-column: 3;
   align-self: flex-start;
   margin-top: 26px;
 }
 
-.detail-degree {
+.education-detail-degree {
   grid-column: 3;
   align-self: flex-end;
 }
@@ -427,7 +421,21 @@ span {
   color: #F05365;
 }
 
-#edit-details {
+#edit-education-details {
+  position: absolute;
+  height: 500px;
+  width: 500px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #4d4e5bfa;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  color: white;
+}
+
+#edit-experience-details {
   position: absolute;
   height: 500px;
   width: 500px;
@@ -480,18 +488,6 @@ span {
   grid-template-rows: auto;
 }
 
-#experience-btn {
-  display: block;
-  position: relative;
-  margin: 20px auto;
-}
-
-#experience-btn:hover {
-  cursor: pointer;;
-  background-color: #C3C5D5;
-  border: 2px solid black;
-}
-
 #experience-submit {
   display: block;
   position: relative;
@@ -537,4 +533,50 @@ span {
   grid-column-end: 2;
   margin-bottom: 33px;
   height: 24px;
+}
+
+#experience-details-container {  
+  grid-column: 1;
+  grid-row: 1;
+  height: fit-content;
+  width: 100%;
+}
+
+.experience-details {
+  display: grid;
+  grid-template-columns: 25% 30% 200px 100px;
+  grid-template-rows: 100px;
+}
+
+#experience-detail-date-container {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: center;
+  text-align: center;
+}
+
+.experience-detail-date {
+  display: inline-block;
+  font-weight: bold;
+}
+
+.experience-detail-position {
+  grid-column: 2;
+  text-align: center;
+  align-self: center;
+}
+
+.experience-detail-specifics {
+  text-align: center;
+}
+
+.experience-detail-company {
+  grid-column: 3;
+  align-self: flex-start;
+  margin-top: 26px;
+}
+
+.experience-detail-city {
+  grid-column: 3;
+  align-self: flex-end;
 }

@@ -3,10 +3,6 @@ import React from 'react'
 const Education = (props) => {
 const {SCHOOL, SUBJECT, DEGREE, START, END, FORM_SUBMIT} = props;
 
-  const SHOW_FORM = (e) => { 
-    e.target.parentElement.children[1].classList.toggle('hidden');
-  }
-
   const VALIDATE = (() => {
     const CHECK_FIRST_LETTER = (e) => {
       let error = e.target.parentElement.children[2];
@@ -27,7 +23,7 @@ const {SCHOOL, SUBJECT, DEGREE, START, END, FORM_SUBMIT} = props;
   }
   return(
     <div id='education-container'>
-      <button id='education-btn' onClick={SHOW_FORM}>Education</button>
+      <h3 id='education-title'>Education</h3>
       <form noValidate id='education-form' onChange={CHANGE_FORM}>
         <div className='child-container' id='school-container'>
           <label htmlFor='school'>School:</label>

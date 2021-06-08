@@ -1,5 +1,6 @@
 import React from 'react'
 import EDUCATION_DETAILS from './Education_Details'
+import EXPERIENCE_DETAILS from './Experience_Details'
 const Display = (props) => {
     return (
       <div id='cv-display'>
@@ -17,7 +18,12 @@ const Display = (props) => {
           <h5 className='display-headers'>Description</h5>
           <hr className='display-hr'/>
           <p id='description-display'>{props.description}</p>
-            <EDUCATION_DETAILS DETAILS={props.DETAILS} />
+          <h5 className='display-headers'>Education</h5>
+          <hr className='display-hr'/>
+          <EDUCATION_DETAILS ED_DETAILS={props.EDUCATION_DETAILS} />
+          <h5 className='display-headers'>Experience</h5>
+          <hr className='display-hr'/>
+          <EXPERIENCE_DETAILS EX_DETAILS={props.EXPERIENCE_DETAILS} />
         </div>
       </div>
     )

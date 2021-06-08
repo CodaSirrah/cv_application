@@ -3,10 +3,6 @@ import React from 'react'
 const Experience = (props) => {
   const { POSITION, COMPANY, CITY, START, END, FORM_SUBMIT} = props;
 
-  const SHOW_FORM = (e) => { 
-    e.target.parentElement.children[1].classList.toggle('hidden');
-  }
-
   const VALIDATE = (() => {
     const CHECK_FIRST_LETTER = (e) => {
       let error = e.target.parentElement.children[2];
@@ -28,7 +24,7 @@ const Experience = (props) => {
 
   return(
     <div id='experience-container'>
-      <button id='experience-btn' onClick={SHOW_FORM}>Experience</button>
+      <h3 id='experience-title'>Experience</h3>
       <form noValidate id='experience-form' onChange={CHANGE_FORM}>
         <div className='child-container' id='position-container'>
           <label htmlFor='position'>Position:</label>
