@@ -52,7 +52,7 @@ const {SCHOOL, SUBJECT, DEGREE, START, END, FORM_SUBMIT} = props;
           <label htmlFor='end-date'>End-Date:</label>
           <input type='number' name='end-date' min='1950' max='2050' step='1' placeholder='2020'onChange={END} />
         </div>
-        <input type='submit' id='education-submit' onClick={FORM_SUBMIT}></input>
+        <i className="fas fa-check-circle" id='education-submit' onClick={FORM_SUBMIT} />
       </form>
     </div>
     )

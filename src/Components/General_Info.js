@@ -123,7 +123,7 @@ const CHANGE_FORM = (e) => {
         </div>
 
         <div className='child-container' id='description-container'>
-          <label htmlFor='description'>Description:</label>
+          <label htmlFor='description' id='description-label'>Description:</label>
           <textarea name='description' placeholder='Sell yourself...' onChange={changeDescription}/>
         </div>
       </form>

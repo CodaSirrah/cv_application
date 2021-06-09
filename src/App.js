@@ -208,6 +208,7 @@ class App extends Component {
     });
   };
 
+
   render() {
     return (
       <div className="App">
@@ -218,8 +219,7 @@ class App extends Component {
           <hr id='hr-1'/>
           <Education SCHOOL={this.changeSchool} SUBJECT={this.changeSubject} DEGREE={this.changeDegree}
            START={this.changeEducationStartDate}
-           END={this.changeEducationEndDate} array={this.state.educationArray} education={this.state.education}
-           FORM_SUBMIT={this.formSubmitEducation} />
+           END={this.changeEducationEndDate} FORM_SUBMIT={this.formSubmitEducation} />
           <hr id='hr-2'/>
           <Experience POSITION={this.changePosition} COMPANY={this.changeCompany} CITY={this.changeCity}
            START={this.changeExperienceStartDate} END={this.changeExperienceEndDate} FORM_SUBMIT={this.formSubmitExperience} />

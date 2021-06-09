@@ -2,15 +2,22 @@ import React from 'react'
 
 const EDUCATION_DETAILS = (props) => {
   const { ED_DETAILS } = props;
+  let itemID = '';
 
   const EDIT = (e) => {
-    document.querySelector('#edit-education-details').classList.toggle('hidden');
+    document.querySelector('#edit-experience-details').classList.add('hidden');
+    if (itemID === e.target.dataset.id) {
+      document.querySelector('#edit-education-details').classList.toggle('hidden');
+    } else if (itemID !== e.target.dataset.id && document.querySelector('#edit-education-details').classList.contains('hidden')) {
+      document.querySelector('#edit-education-details').classList.remove('hidden');
+    }
     document.querySelector('#edit-school').children[1].value = e.target.parentElement.children[1].textContent;
     document.querySelector('#edit-subject').children[1].value = e.target.parentElement.children[2].children[0].textContent.slice(9);
     document.querySelector('#edit-degree').children[1].value = e.target.parentElement.children[2].children[1].textContent.slice(8);
     document.querySelector('#edit-education-start-date').children[1].value = e.target.parentElement.children[0].children[0].textContent.slice(0, -3);
     document.querySelector('#edit-education-end-date').children[1].value = e.target.parentElement.children[0].children[1].textContent;
     document.querySelector('#education-square').setAttribute('data-id', e.target.dataset.id);
+    itemID = e.target.dataset.id;
   }
 
   const REMOVE = (e) => {
