@@ -1,6 +1,6 @@
 import React from 'react'
-import EDUCATION_DETAILS from './Education_Details'
-import EXPERIENCE_DETAILS from './Experience_Details'
+import EDUCATION_DETAILS from './Details/Education_Details'
+import EXPERIENCE_DETAILS from './Details/Experience_Details'
 const Display = (props) => {
     return (
       <div id='cv-display'>
