@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Education = (props) => {
-  const { SCHOOL, SUBJECT, DEGREE, START, END, FORM_SUBMIT } = props;
+  const { change, formSubmit } = props;
 
   const VALIDATE = (() => {
     const CHECK_FIRST_LETTER = (e) => {
@@ -35,7 +35,7 @@ const Education = (props) => {
             type='text'
             name='school'
             autoComplete='off'
-            onChange={SCHOOL}
+            onChange={change}
           />
           <span id='school-error' aria-live='polite' />
         </div>
@@ -46,7 +46,7 @@ const Education = (props) => {
             type='text'
             name='subject'
             autoComplete='off'
-            onChange={SUBJECT}
+            onChange={change}
           />
           <span id='subject-error' aria-live='polite' />
         </div>
@@ -57,7 +57,7 @@ const Education = (props) => {
             type='text'
             name='degree'
             autoComplete='off'
-            onChange={DEGREE}
+            onChange={change}
           />
           <span id='degree-error' aria-live='polite' />
         </div>
@@ -66,12 +66,12 @@ const Education = (props) => {
           <label htmlFor='start-date'>Start-Date:</label>
           <input
             type='number'
-            name='start-date'
+            name='start_date'
             min='1950'
             max='2050'
             step='1'
             placeholder='2015'
-            onChange={START}
+            onChange={change}
           />
         </div>
 
@@ -79,18 +79,18 @@ const Education = (props) => {
           <label htmlFor='end-date'>End-Date:</label>
           <input
             type='number'
-            name='end-date'
+            name='end_date'
             min='1950'
             max='2050'
             step='1'
             placeholder='2020'
-            onChange={END}
+            onChange={change}
           />
         </div>
         <i
           className='fas fa-check-circle'
           id='education-submit'
-          onClick={FORM_SUBMIT}
+          onClick={formSubmit}
         />
       </form>
     </div>

@@ -1,13 +1,7 @@
 import React from 'react';
 
 const GeneralInfo = (props) => {
-  const {
-    changeFirstName,
-    changeLastName,
-    changeEmail,
-    changePhone,
-    changeDescription,
-  } = props;
+  const { change } = props;
 
   const VALIDATE = (() => {
     const SPECIALS = [
@@ -164,7 +158,7 @@ const GeneralInfo = (props) => {
             type='text'
             name='firstName'
             autoComplete='off'
-            onChange={changeFirstName}
+            onChange={change}
           />
           <span id='first-name-error' aria-live='polite'></span>
         </div>
@@ -175,7 +169,7 @@ const GeneralInfo = (props) => {
             type='text'
             name='lastName'
             autoComplete='off'
-            onChange={changeLastName}
+            onChange={change}
           />
           <span id='last-name-error' aria-live='polite'></span>
         </div>
@@ -187,19 +181,14 @@ const GeneralInfo = (props) => {
             name='email'
             spellCheck='off'
             autoComplete='off'
-            onChange={changeEmail}
+            onChange={change}
           />
           <span id='email-error' aria-live='polite'></span>
         </div>
 
         <div className='child-container' id='phone-container'>
           <label htmlFor='phone'>Phone:</label>
-          <input
-            type='tel'
-            name='phone'
-            autoComplete='off'
-            onChange={changePhone}
-          />
+          <input type='tel' name='phone' autoComplete='off' onChange={change} />
           <span id='phone-error' aria-live='polite'></span>
         </div>
 
@@ -210,7 +199,7 @@ const GeneralInfo = (props) => {
           <textarea
             name='description'
             placeholder='Sell yourself...'
-            onChange={changeDescription}
+            onChange={change}
           />
         </div>
       </form>

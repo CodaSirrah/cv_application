@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Experience = (props) => {
-  const { POSITION, COMPANY, CITY, START, END, FORM_SUBMIT } = props;
+  const { change, formSubmit } = props;
 
   const VALIDATE = (() => {
     const CHECK_FIRST_LETTER = (e) => {
@@ -36,7 +36,7 @@ const Experience = (props) => {
             type='text'
             name='position'
             autoComplete='off'
-            onChange={POSITION}
+            onChange={change}
           />
           <span id='position-error' aria-live='polite' />
         </div>
@@ -47,14 +47,14 @@ const Experience = (props) => {
             type='text'
             name='company'
             autoComplete='off'
-            onChange={COMPANY}
+            onChange={change}
           />
           <span id='company-error' aria-live='polite' />
         </div>
 
         <div className='child-container' id='city-container'>
           <label htmlFor='city'>City:</label>
-          <input type='text' name='city' autoComplete='off' onChange={CITY} />
+          <input type='text' name='city' autoComplete='off' onChange={change} />
           <span id='city-error' aria-live='polite' />
         </div>
 
@@ -62,12 +62,12 @@ const Experience = (props) => {
           <label htmlFor='start-date'>Start-Date:</label>
           <input
             type='number'
-            name='start-date'
+            name='start_date'
             min='1950'
             max='2050'
             step='1'
             placeholder='2015'
-            onChange={START}
+            onChange={change}
           />
         </div>
 
@@ -75,18 +75,18 @@ const Experience = (props) => {
           <label htmlFor='end-date'>End-Date:</label>
           <input
             type='number'
-            name='end-date'
+            name='end_date'
             min='1950'
             max='2050'
             step='1'
             placeholder='2020'
-            onChange={END}
+            onChange={change}
           />
         </div>
         <i
           className='fas fa-check-circle'
           id='experience-submit'
-          onClick={FORM_SUBMIT}
+          onClick={formSubmit}
         />
       </form>
     </div>

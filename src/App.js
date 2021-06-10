@@ -23,7 +23,6 @@ class App extends Component {
       experience: '',
       experienceArray: [],
     };
-    this.handleChange = this.handleChange.bind(this);
   }
 
   education = {
@@ -48,6 +47,16 @@ class App extends Component {
     this.setState({
       [event.target.name]: event.target.value,
     });
+  };
+
+  handleChangeEducation = (event) => {
+    this.education[event.target.name] = event.target.value;
+    this.setState({ education: this.education });
+  };
+
+  handleChangeExperience = (event) => {
+    this.experience[event.target.name] = event.target.value;
+    this.setState({ experience: this.experience });
   };
 
   formSubmitEducation = (e) => {
@@ -170,33 +179,19 @@ class App extends Component {
   };
   render() {
     return (
-      <div className="App">
-        <Header name="CV Creator" />
-        <div className="cv-info">
-          <GeneralInfo
-            changeFirstName={this.handleChange}
-            changeLastName={this.handleChange}
-            changeEmail={this.handleChange}
-            changePhone={this.handleChange}
-            changeDescription={this.handleChange}
-          />
-          <hr id="hr-1" />
+      <div className='App'>
+        <Header name='CV Creator' />
+        <div className='cv-info'>
+          <GeneralInfo change={this.handleChange} />
+          <hr id='hr-1' />
           <Education
-            SCHOOL={this.changeSchool}
-            SUBJECT={this.changeSubject}
-            DEGREE={this.changeDegree}
-            START={this.changeEducationStartDate}
-            END={this.changeEducationEndDate}
-            FORM_SUBMIT={this.formSubmitEducation}
+            change={this.handleChangeEducation}
+            formSubmit={this.formSubmitEducation}
           />
-          <hr id="hr-2" />
+          <hr id='hr-2' />
           <Experience
-            POSITION={this.changePosition}
-            COMPANY={this.changeCompany}
-            CITY={this.changeCity}
-            START={this.changeExperienceStartDate}
-            END={this.changeExperienceEndDate}
-            FORM_SUBMIT={this.formSubmitExperience}
+            change={this.handleChangeExperience}
+            formSubmit={this.formSubmitExperience}
           />
         </div>
         <Display
