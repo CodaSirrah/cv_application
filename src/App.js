@@ -1,47 +1,47 @@
-import "./App.css";
-import React, { Component } from "react";
-import Header from "./Components/Header";
-import GeneralInfo from "./Components/General_Info";
-import Education from "./Components/Education";
-import Experience from "./Components/Experience";
-import Display from "./Components/Display";
-import EDIT_EDUCATION from "./Components/Edit_Education";
-import EDIT_EXPERIENCE from "./Components/Edit_Experience";
-import uniqid from "uniqid";
+import './App.css';
+import React, { Component } from 'react';
+import Header from './Components/Header';
+import GeneralInfo from './Components/General_Info';
+import Education from './Components/Education';
+import Experience from './Components/Experience';
+import Display from './Components/Display';
+import EDIT_EDUCATION from './Components/Edit_Education';
+import EDIT_EXPERIENCE from './Components/Edit_Experience';
+import uniqid from 'uniqid';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      firstName: "",
-      lastName: "",
-      email: "",
-      phone: "",
-      description: "",
-      education: "",
+      firstName: '',
+      lastName: '',
+      email: '',
+      phone: '',
+      description: '',
+      education: '',
       educationArray: [],
-      experience: "",
+      experience: '',
       experienceArray: [],
     };
     this.handleChange = this.handleChange.bind(this);
   }
 
   education = {
-    school: "",
-    subject: "",
-    degree: "",
-    start_date: "",
-    end_date: "",
-    id: "",
+    school: '',
+    subject: '',
+    degree: '',
+    start_date: '',
+    end_date: '',
+    id: '',
   };
 
   experience = {
-    position: "",
-    company: "",
-    city: "",
-    start_date: "",
-    end_date: "",
-    id: "",
+    position: '',
+    company: '',
+    city: '',
+    start_date: '',
+    end_date: '',
+    id: '',
   };
 
   handleChange = (event) => {
@@ -59,24 +59,24 @@ class App extends Component {
           educationArray: this.state.educationArray.concat(
             this.state.education
           ),
-          education: "",
+          education: '',
         },
         () => {
           this.education = {
-            school: "",
-            subject: "",
-            degree: "",
-            start_date: "",
-            end_date: "",
-            id: "",
+            school: '',
+            subject: '',
+            degree: '',
+            start_date: '',
+            end_date: '',
+            id: '',
           };
         }
       );
     });
     for (let i = 0; i < 5; i += 1) {
-      e.target.parentElement.children[i].children[1].value = "";
+      e.target.parentElement.children[i].children[1].value = '';
       if (i < 3) {
-        e.target.parentElement.children[i].children[2].textContent = "";
+        e.target.parentElement.children[i].children[2].textContent = '';
       }
     }
   };
@@ -90,24 +90,24 @@ class App extends Component {
           experienceArray: this.state.experienceArray.concat(
             this.state.experience
           ),
-          experience: "",
+          experience: '',
         },
         () => {
           this.experience = {
-            position: "",
-            company: "",
-            city: "",
-            start_date: "",
-            end_date: "",
-            id: "",
+            position: '',
+            company: '',
+            city: '',
+            start_date: '',
+            end_date: '',
+            id: '',
           };
         }
       );
     });
     for (let i = 0; i < 5; i += 1) {
-      e.target.parentElement.children[i].children[1].value = "";
+      e.target.parentElement.children[i].children[1].value = '';
       if (i < 3) {
-        e.target.parentElement.children[i].children[2].textContent = "";
+        e.target.parentElement.children[i].children[2].textContent = '';
       }
     }
   };
@@ -127,8 +127,8 @@ class App extends Component {
       id: e.target.dataset.id,
     };
     document
-      .querySelector("#edit-education-details")
-      .classList.toggle("hidden");
+      .querySelector('#edit-education-details')
+      .classList.toggle('hidden');
     const NEW_EDUCATION_ARRAY = [];
     this.state.educationArray.forEach((current) => {
       if (current.id === NEW_EDUCATION.id) {
@@ -155,8 +155,8 @@ class App extends Component {
       id: e.target.dataset.id,
     };
     document
-      .querySelector("#edit-experience-details")
-      .classList.toggle("hidden");
+      .querySelector('#edit-experience-details')
+      .classList.toggle('hidden');
     const NEW_EXPERIENCE_ARRAY = [];
     this.state.experienceArray.forEach((current) => {
       if (current.id === NEW_EXPERIENCE.id) {
